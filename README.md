@@ -75,9 +75,9 @@ This is a submission for [StackUp's Build a Social Media Dapp Bounty](https://ap
 
 - Ethersjs for utils to interact with smart contract
 
-- Vercel for hosting frontend app
-
 - Dayjs for formatting timestamp
+
+- Vercel for hosting frontend app: https://kit-t-social-media-bounty.vercel.app/
 
 ## Getting Started
 
