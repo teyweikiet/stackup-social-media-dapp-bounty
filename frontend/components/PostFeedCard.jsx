@@ -1,9 +1,9 @@
 import Link from 'next/link'
 
-import { Paper, Group, Text, Skeleton, Stack, Container, Loader, Avatar } from '@mantine/core'
+import { Paper, Group, Text, Skeleton, Stack, Container, Loader, Avatar, Spoiler, Center } from '@mantine/core'
 
 import { useSocialMediaContractRead, useSocialMediaContractWrite } from '@/hooks/useSocialMediaContract'
-import { metamaskWallet, useAddress, useConnect } from '@thirdweb-dev/react'
+import { MediaRenderer, metamaskWallet, useAddress, useConnect } from '@thirdweb-dev/react'
 import { IconBell, IconBellFilled, IconHeart, IconHeartFilled, IconMessage } from '@tabler/icons-react'
 import { notifications } from '@mantine/notifications'
 import { useDisclosure } from '@mantine/hooks'
@@ -28,7 +28,7 @@ export function PostFeedCard ({ id }) {
 
   const [isOpened, handlers] = useDisclosure(false)
 
-  const { content, author, createdAt, likeCount } = data ?? {}
+  const { content, imageCid, author, createdAt, likeCount } = data ?? {}
   const isAuthor = !isLoading && currentUserAddress === author
 
   const { data: isFollowing } = useSocialMediaContractRead('isFollowing', [author], {
@@ -98,7 +98,6 @@ export function PostFeedCard ({ id }) {
         noWrap
         align='flex-start'
       >
-
         <Group>
           <Skeleton
             visible={isLoading}
@@ -106,7 +105,7 @@ export function PostFeedCard ({ id }) {
             h='2rem'
           >
             <Link href={`/profile/${author}`}>
-              <Avatar radius='xs'>
+              <Avatar radius='md'>
                 <Text
                   style={{
                     fontSize: '0.65rem'
@@ -116,19 +115,43 @@ export function PostFeedCard ({ id }) {
                 </Text>
               </Avatar>
             </Link>
-
           </Skeleton>
         </Group>
 
-        <Group>
-          <Skeleton
-            visible={isLoading}
-            miw='10rem'
-          >
-            <Text size='md'>
-              {content}
-            </Text>
-          </Skeleton>
+        <Group grow w='100%'>
+          <Stack>
+            <Skeleton
+              visible={isLoading}
+              miw='10rem'
+            >
+              <Spoiler maxHeight={120} showLabel='Show more' hideLabel='Hide'>
+                <Text
+                  size='md'
+                  align='justify'
+                >
+                  {content}
+                </Text>
+              </Spoiler>
+            </Skeleton>
+            {
+              imageCid && (
+                <Center w='100%'>
+                  <MediaRenderer
+                    src={imageCid}
+                    style={{
+                      margin: 'auto',
+                      borderRadius: '0.5rem',
+                      objectFit: 'cover',
+                      maxWidth: '100%',
+                      width: 'auto',
+                      maxHeight: '300px',
+                      marginBottom: '1rem'
+                    }}
+                  />
+                </Center>
+              )
+            }
+          </Stack>
         </Group>
       </Group>
 

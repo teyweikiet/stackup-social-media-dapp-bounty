@@ -23,7 +23,7 @@ export default function Profile () {
         >
           <Avatar
             size='xl'
-            radius='xs'
+            radius='md'
             my='sm'
           >
             <Text size='sm'>

@@ -59,7 +59,7 @@ export function Navbar () {
               {
                 currentUserAddress && (
                   <Link href={`/profile/${currentUserAddress}`}>
-                    <Avatar radius='xs'>
+                    <Avatar radius='md'>
                       <Text
                         style={{
                           fontSize: '0.65rem'
@@ -105,7 +105,7 @@ export function Navbar () {
             {
               currentUserAddress && (
                 <Link href={`/profile/${currentUserAddress}`}>
-                  <Avatar radius='xs'>
+                  <Avatar radius='md'>
                     <Text
                       style={{
                         fontSize: '0.65rem'

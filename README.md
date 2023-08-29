@@ -11,7 +11,7 @@
     <br />
     <a href="https://kit-t-social-media-bounty.vercel.app/"><strong>View Demo</strong></a>
     |
-    <a href="https://mumbai.polygonscan.com/address/0xc682d41cF68C899Bd84e82F66582495423879cFF#code"><strong>View Contract</strong></a>
+    <a href="https://mumbai.polygonscan.com/address/0x73DEf271F430644dcfCD5c1967B8e4A208d80e99#code"><strong>View Contract</strong></a>
     <br />
   </p>
 </div>
@@ -48,12 +48,13 @@ This is a submission for [StackUp's Build a Social Media Dapp Bounty](https://ap
 
 ### Functionalities
 
-- user can connect wallet to social media platform
-- user can create post and see all posts created by every user on the platform in descending time of creation
-- user can comment on a post and see the list of comments created
+- user can connect wallet to the social media platform
+- user can create post with text and image
+- user can see all posts created by every user on the platform in descending time of creation
+- user can add a comment on a post and see the list of comments on a post
 - user can like a comment and a post
 - user can follow another user
-- user can see user profile which includes statistics about follower, following and posts created by the user
+- user can see each other profile which includes statistics about follower, following and also a list of posts created by the user
 
 ## Built With
 

@@ -16,6 +16,7 @@ contract SocialMedia {
         uint postId;
         address author;
         string content;
+        string imageCid;
         uint createdAt;
         uint likeCount;
         // keep track whether each user has liked the post
@@ -45,13 +46,15 @@ contract SocialMedia {
 
     // create post
     function createPost(
-        string calldata _content
+        string calldata _content,
+        string calldata _imageCid
     ) external contentNotEmpty(_content) {
         // create post
         Post storage post = posts[postCount];
         post.postId = postCount;
         post.author = msg.sender;
         post.content = _content;
+        post.imageCid = _imageCid;
         post.createdAt = block.timestamp;
 
         // add post to userPosts

@@ -95,7 +95,7 @@ export function CommentCard ({ id }) {
             h='2rem'
           >
             <Link href={`/profile/${author}`}>
-              <Avatar radius='xs'>
+              <Avatar radius='md'>
                 <Text
                   style={{
                     fontSize: '0.65rem'
