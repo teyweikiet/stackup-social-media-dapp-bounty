@@ -9,12 +9,10 @@ import { notifications } from '@mantine/notifications'
 export function CreateCommentForm ({ postId }) {
   const form = useForm({
     initialValues: { content: '' },
-    validate: (values) => {
-      return {
-        content: values.content.trim().length <= 0
-          ? 'Cannot submit empty post!'
-          : null
-      }
+    validate: {
+      content: (value) => value.trim().length <= 0
+        ? 'Cannot submit empty comment!'
+        : null
     }
   })
 

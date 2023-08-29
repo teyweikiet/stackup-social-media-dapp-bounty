@@ -31,10 +31,18 @@ contract SocialMedia {
         uint followingCount;
         uint followerCount;
         uint postCount;
+        // total tips received
+        uint256 tipsReceived;
+        // total tips given
+        uint256 tipsGiven;
         // keep track whether current user is following a user
         mapping(address => bool) following;
         // keep track whether current user is followed by a user
         mapping(address => bool) followers;
+        // keep track whom has current user tipped
+        mapping(address => bool) tipped;
+        // keep track who has tipped current user
+        mapping(address => bool) tippers;
     }
 
     mapping(address => User) public users;
@@ -166,6 +174,30 @@ contract SocialMedia {
     // check if msg.sender is following a user
     function isFollowing(address _user) external view returns (bool) {
         return users[msg.sender].following[_user];
+    }
+
+    // check if a user has tipped msg.sender
+    function isTippedBy(address _user) external view returns (bool) {
+        return users[msg.sender].tippers[_user];
+    }
+
+    // pay user tip money
+    function tipUser(address _user) external payable {
+        (bool success, ) = _user.call{value: msg.value}("");
+        require(success, "Transfer failed.");
+
+        // get user struct for msg.sender
+        User storage tipper = users[msg.sender];
+        // get user struct for user tipped
+        User storage tipped = users[_user];
+
+        // update tipping relationship
+        tipper.tipped[_user] = true;
+        tipped.tippers[msg.sender] = true;
+
+        // increase counts
+        tipper.tipsGiven = tipper.tipsGiven + msg.value;
+        tipped.tipsReceived = tipped.tipsReceived + msg.value;
     }
 
     // throw error if a postId doesn't belong to an existing post
