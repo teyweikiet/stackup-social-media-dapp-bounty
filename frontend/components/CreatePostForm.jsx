@@ -40,6 +40,7 @@ export function CreatePostForm () {
         wrapperProps={{
           px: 'sm'
         }}
+        size='xl'
       />
       {
         imageUrl && (

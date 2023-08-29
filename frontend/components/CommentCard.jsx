@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { Paper, Group, Text, Skeleton, Loader, Avatar } from '@mantine/core'
+import { Paper, Group, Text, Skeleton, Loader, Avatar, Spoiler } from '@mantine/core'
 
 import { useSocialMediaContractRead, useSocialMediaContractWrite } from '@/hooks/useSocialMediaContract'
 import { metamaskWallet, useAddress, useConnect } from '@thirdweb-dev/react'
@@ -114,9 +114,14 @@ export function CommentCard ({ id }) {
             visible={isLoading}
             miw='8rem'
           >
-            <Text size='sm'>
-              {content}
-            </Text>
+            <Spoiler maxHeight={120} showLabel='Show more' hideLabel='Hide'>
+              <Text
+                size='sm'
+                align='justify'
+              >
+                {content}
+              </Text>
+            </Spoiler>
           </Skeleton>
         </Group>
       </Group>

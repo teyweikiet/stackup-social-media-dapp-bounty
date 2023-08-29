@@ -7,6 +7,7 @@ import { Container, MantineProvider } from '@mantine/core'
 import { Mumbai } from '@thirdweb-dev/chains'
 import { Navbar } from '@/components/Navbar'
 import { Notifications } from '@mantine/notifications'
+import { ScrollToTop } from '@/components/ScrollToTop'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -50,6 +51,7 @@ export default function RootLayout ({ children }) {
               <Navbar />
               {children}
             </Container>
+            <ScrollToTop />
           </MantineProvider>
         </ThirdwebProvider>
       </body>
