@@ -39,6 +39,19 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
+    <li>
+      <a href="#how-tos">How Tos</a>
+      <ul>
+        <li><a href="#connect-wallet-to-platform">Connect Wallet to Platform</a></li>
+        <li><a href="#create-post-with-image-visual">Create Post with Image Visual</a></li>
+        <li><a href="#like-a-post">Like A Post</a></li>
+        <li><a href="#create-and-like-a-comment">Create And Like A Comment</a></li>
+        <li><a href="#follow-another-user">Follow Another User</a></li>
+        <li><a href="#visit-a-user-profile">Visit A User Profile</a></li>
+        <li><a href="#tip-a-user">Tip A User</a></li>
+        <li><a href="#visit-own-profile-and-check-earnings">Visit Own Profile And Check Earnings</a></li>
+      </ul>
+    </li>
   </ol>
 </details>
 
@@ -136,3 +149,37 @@ npm install
 ```sh
 cp .env.example .env
 ```
+
+## How tos
+
+### Connect Wallet to Platform
+
+![How to connect wallet to platform](./docs/how-to-connect-wallet.gif)
+
+### Create Post with Image Visual
+
+![How to create post with image visual](./docs/how-to-create-post-with-image-visual.gif)
+
+### Like A Post
+
+![How to like a post](./docs/how-to-like-a-post.gif)
+
+### Create And Like A Comment
+
+![How to create and like a comment](./docs/how-to-create-and-like-a-comment.gif)
+
+### Follow Another User
+
+![How to follow another user](./docs/how-to-follow-another-user.gif)
+
+### Visit A User Profile
+
+![How to visit a user profile](./docs/how-to-visit-a-user-profile.gif)
+
+### Tip A User
+
+![How to tip a user](./docs/how-to-tip-a-user.gif)
+
+### Visit Own Profile And Check Earnings
+
+![How to visit own profile and check earnings](./docs/how-to-visit-own-profile-and-check-earnings.gif)
