@@ -7,16 +7,16 @@
     "build": "next build",
     "start": "next start",
     "lint": "standard",
-    "lint:fix": "standard --fix"
+    "lint:fix": "standard --fix",
+    "analyze": "ANALYZE=true next build"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
-    "@mantine/core": "^6.0.19",
-    "@mantine/dropzone": "^6.0.19",
-    "@mantine/form": "^6.0.19",
-    "@mantine/hooks": "^6.0.19",
-    "@mantine/next": "^6.0.19",
-    "@mantine/notifications": "^6.0.19",
+    "@mantine/core": "^7.1.5",
+    "@mantine/dropzone": "^7.1.5",
+    "@mantine/form": "^7.1.5",
+    "@mantine/hooks": "^7.1.5",
+    "@mantine/notifications": "^7.1.5",
     "@tabler/icons-react": "^2.32.0",
     "@thirdweb-dev/chains": "^0.1.48",
     "@thirdweb-dev/react": "^3.14.37",
@@ -25,13 +25,18 @@
     "encoding": "^0.1.13",
     "ethers": "^5.7.2",
     "lokijs": "^1.5.12",
-    "next": "13.4.19",
+    "next": "14.0.1",
+    "normalize.css": "^8.0.1",
     "pino-pretty": "^10.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^14.0.1",
+    "postcss": "^8.4.31",
+    "postcss-preset-mantine": "^1.9.0",
+    "postcss-simple-vars": "^7.0.1",
     "standard": "^17.1.0"
   }
 }

@@ -27,7 +27,7 @@ export function CreateCommentForm ({ postId }) {
         placeholder='Write your comment here...'
         {...form.getInputProps('content')}
       />
-      <Group position='right'>
+      <Group justify='flex-end'>
         <Web3Button
           contractAddress={process.env.NEXT_PUBLIC_SOCIAL_MEDIA_ADDRESS}
           contractAbi={socialMediaArtifact.abi}

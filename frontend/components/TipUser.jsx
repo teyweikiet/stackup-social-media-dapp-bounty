@@ -47,7 +47,7 @@ export function TipUser ({ userAddress }) {
             {...form.getInputProps('amount')}
           />
 
-          <Group position='right' mt='md'>
+          <Group justify='flex-end' mt='md'>
             <Web3Button
               contractAddress={process.env.NEXT_PUBLIC_SOCIAL_MEDIA_ADDRESS}
               contractAbi={socialMediaArtifact.abi}
@@ -84,7 +84,7 @@ export function TipUser ({ userAddress }) {
           </Group>
         </Box>
       </Modal>
-      <Group position='center'>
+      <Group>
         <Button onClick={open}>Wanna Tip Me? 😉</Button>
       </Group>
     </>

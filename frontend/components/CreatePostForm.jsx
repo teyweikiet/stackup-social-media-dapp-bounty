@@ -65,7 +65,7 @@ export function CreatePostForm () {
         )
       }
       <Group
-        position='apart'
+        justify='space-between'
         align='center'
         mt='1rem'
       >

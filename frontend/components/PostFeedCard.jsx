@@ -95,7 +95,7 @@ export function PostFeedCard ({ id }) {
       </Group>
 
       <Group
-        noWrap
+        wrap='no-wrap'
         align='flex-start'
       >
         <Group>
@@ -108,7 +108,7 @@ export function PostFeedCard ({ id }) {
               <Avatar radius='md'>
                 <Text
                   style={{
-                    fontSize: '0.65rem'
+                    fontSize: '0.6rem'
                   }}
                 >
                   {author && `${author.substring(0, 3)}...${author.substring(author.length - 2)}`}
@@ -118,7 +118,7 @@ export function PostFeedCard ({ id }) {
           </Skeleton>
         </Group>
 
-        <Group grow w='100%'>
+        <Group grow>
           <Stack>
             <Skeleton
               visible={isLoading}
@@ -155,7 +155,7 @@ export function PostFeedCard ({ id }) {
         </Group>
       </Group>
 
-      <Group position='apart'>
+      <Group justify='space-between'>
         <Group>
           <Skeleton visible={isLoading}>
             <Text

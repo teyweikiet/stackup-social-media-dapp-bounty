@@ -4,24 +4,20 @@ import Link from 'next/link'
 
 import Image from 'next/image'
 import {
-  Header,
   Group,
   Burger,
-  rem,
   Title,
   Drawer,
-  MediaQuery,
   Center,
   Text,
   Avatar
 } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
 
+import classes from './Navbar.module.css'
 import { ConnectNetwork } from './ConnectNetwork'
 import favicon from '../app/favicon.ico'
 import { useAddress } from '@thirdweb-dev/react'
-
-const HEADER_HEIGHT = rem(60)
 
 export function Navbar () {
   const currentUserAddress = useAddress()
@@ -29,8 +25,8 @@ export function Navbar () {
 
   return (
     <>
-      <Header height={HEADER_HEIGHT}>
-        <Group position='apart' sx={{ height: '100%' }}>
+      <header className={classes.header}>
+        <Group justify='space-between' sx={{ height: '100%' }}>
           <Group>
             <Link href='/'>
               <Group>
@@ -48,21 +44,15 @@ export function Navbar () {
               </Group>
             </Link>
           </Group>
-          <MediaQuery
-            largerThan='sm'
-            styles={{
-              display: 'flex'
-            }}
-          >
-            <Group display='none'>
-              <ConnectNetwork />
-              {
+          <Group display={{ base: 'none', sm: 'flex' }}>
+            <ConnectNetwork />
+            {
                 currentUserAddress && (
                   <Link href={`/profile/${currentUserAddress}`}>
                     <Avatar radius='md'>
                       <Text
                         style={{
-                          fontSize: '0.65rem'
+                          fontSize: '0.6rem'
                         }}
                       >
                         {currentUserAddress && `${currentUserAddress.substring(0, 3)}...${currentUserAddress.substring(currentUserAddress.length - 2)}`}
@@ -71,44 +61,31 @@ export function Navbar () {
                   </Link>
                 )
               }
-            </Group>
-          </MediaQuery>
-          <MediaQuery
-            largerThan='sm'
-            styles={{
-              display: 'none'
-            }}
-          >
-            <Group>
-              <Burger
-                opened={drawerOpened}
-                onClick={toggleDrawer}
-              />
-            </Group>
-          </MediaQuery>
-        </Group>
-      </Header>
+          </Group>
 
-      <MediaQuery
-        largerThan='sm'
-        styles={{
-          display: 'none'
-        }}
+          <Group display={{ sm: 'none' }}>
+            <Burger
+              opened={drawerOpened}
+              onClick={toggleDrawer}
+            />
+          </Group>
+        </Group>
+      </header>
+      <Drawer
+        display={{ sm: 'none' }}
+        opened={drawerOpened}
+        onClose={closeDrawer}
+        zIndex={1000000}
+        position='right'
       >
-        <Drawer
-          opened={drawerOpened}
-          onClose={closeDrawer}
-          zIndex={1000000}
-          position='right'
-        >
-          <Center m='sm'>
-            {
+        <Center m='sm'>
+          {
               currentUserAddress && (
                 <Link href={`/profile/${currentUserAddress}`}>
                   <Avatar radius='md'>
                     <Text
                       style={{
-                        fontSize: '0.65rem'
+                        fontSize: '0.6rem'
                       }}
                     >
                       {currentUserAddress && `${currentUserAddress.substring(0, 3)}...${currentUserAddress.substring(currentUserAddress.length - 2)}`}
@@ -117,13 +94,11 @@ export function Navbar () {
                 </Link>
               )
             }
-          </Center>
-          <Center m='sm'>
-            <ConnectNetwork />
-          </Center>
-
-        </Drawer>
-      </MediaQuery>
+        </Center>
+        <Center m='sm'>
+          <ConnectNetwork />
+        </Center>
+      </Drawer>
     </>
   )
 }

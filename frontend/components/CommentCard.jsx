@@ -98,7 +98,7 @@ export function CommentCard ({ id }) {
               <Avatar radius='md'>
                 <Text
                   style={{
-                    fontSize: '0.65rem'
+                    fontSize: '0.6rem'
                   }}
                 >
                   {author && `${author.substring(0, 3)}...${author.substring(author.length - 2)}`}
@@ -126,7 +126,7 @@ export function CommentCard ({ id }) {
         </Group>
       </Group>
 
-      <Group position='apart'>
+      <Group justify='space-between'>
         <Group>
           <Skeleton visible={isLoading}>
             <Text

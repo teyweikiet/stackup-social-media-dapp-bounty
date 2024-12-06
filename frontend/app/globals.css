@@ -1,0 +1,15 @@
+a {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+.button {
+  background: #1971c2 !important;
+  color: white !important;
+
+}
+
+:disabled {
+  background: #373A40 !important;
+  color: #B8B8B8 !important;
+}

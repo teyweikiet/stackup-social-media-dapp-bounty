@@ -1,8 +1,13 @@
 'use client'
 
+import 'normalize.css/normalize.css'
+import '@mantine/core/styles.css'
+import '@mantine/notifications/styles.css'
+import './globals.css'
+
 import { Inter } from 'next/font/google'
 import { ThirdwebProvider } from '@thirdweb-dev/react'
-import { Container, MantineProvider } from '@mantine/core'
+import { Container, MantineProvider, ColorSchemeScript } from '@mantine/core'
 
 import { Mumbai } from '@thirdweb-dev/chains'
 import { Navbar } from '@/components/Navbar'
@@ -18,6 +23,7 @@ export default function RootLayout ({ children }) {
         <title>kit-t's social media</title>
         <meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width' />
         <meta name='description' content="Submission for StackUp's Social Media dapp bounty" />
+        <ColorSchemeScript defaultColorScheme='dark' />
       </head>
       <body className={inter.className}>
         <ThirdwebProvider
@@ -25,26 +31,7 @@ export default function RootLayout ({ children }) {
           activeChain={Mumbai}
         >
           <MantineProvider
-            withGlobalStyles
-            withNormalizeCSS
-            theme={{
-              colorScheme: 'dark',
-              globalStyles: (theme) => ({
-                a: {
-                  textDecoration: 'none !important',
-                  color: 'inherit !important'
-                },
-
-                '.button': {
-                  background: '#1971c2 !important',
-                  color: 'white !important',
-                  ':disabled': {
-                    background: '#373A40 !important',
-                    color: '#B8B8B8 !important'
-                  }
-                }
-              })
-            }}
+            defaultColorScheme='dark'
           >
             <Notifications />
             <Container size='65rem' px='s'>
